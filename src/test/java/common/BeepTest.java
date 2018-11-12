@@ -43,7 +43,7 @@ public class BeepTest {
     }
 
     public static Integer[] getTimeouts(int length) {
-        List<Integer> timeouts = new ArrayList<>(length);
+        List<Integer> timeouts = new ArrayList<Integer>(length);
         for (int i = 0; i < length; i++) {
             int timeout = (int) (Math.random() * 6 + 5) * 100;
             timeouts.add(timeout);

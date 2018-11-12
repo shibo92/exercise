@@ -1,6 +1,6 @@
 package java8;
 
-import com.blog.entity.User;
+import entity.User;
 import org.junit.Test;
 import org.junit.experimental.theories.suppliers.TestedOn;
 
