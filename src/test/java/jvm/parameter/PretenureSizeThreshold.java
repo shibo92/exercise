@@ -1,4 +1,4 @@
-package jvm;
+package jvm.parameter;
 
 /**
  * 大对象直接进入老年代
@@ -7,9 +7,9 @@ package jvm;
  * -XX:PretenureSizeThreshold=3145728(b) 设置大对象阈值大小为3M
  */
 public class PretenureSizeThreshold {
-
+    private static final int MB_1 = 1024 * 1024;
     public static void main(String[] args) {
         // 直接分配到老年代
-        byte[] allocation = new byte[Allocation.MB_1 * 6];
+        byte[] allocation = new byte[MB_1 * 6];
     }
 }

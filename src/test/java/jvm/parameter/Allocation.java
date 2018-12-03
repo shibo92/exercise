@@ -1,4 +1,4 @@
-package jvm;
+package jvm.parameter;
 
 /**
  * * 对象优先在Eden分配，大小不够用时进行minor gc
@@ -8,7 +8,7 @@ package jvm;
  */
 public class Allocation {
 
-    protected static final int MB_1 = 1024 * 1024;
+    private static final int MB_1 = 1024 * 1024;
 
     public static void main(String[] args) {
         byte[] allcation1, allcation2, allcation3, allcation4;

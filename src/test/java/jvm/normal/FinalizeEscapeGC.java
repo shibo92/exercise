@@ -1,4 +1,4 @@
-package jvm;
+package jvm.normal;
 
 /**
  * 可达性分析机制：进行两次标记

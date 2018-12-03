@@ -1,4 +1,4 @@
-package jvm;
+package jvm.normal;
 
 import java.util.ArrayList;
 import java.util.List;
