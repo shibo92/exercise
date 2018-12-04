@@ -2,28 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0872cef-cd5a-4cf4-975e-4dd1f05898cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/jvm/monitor/DeadLoop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/jvm/monitor/Test01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/jvm/normal/JITTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/jvm/parameter/TenuringThreshold.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/jvm/monitor/BTraceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/jvm/Allocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/jvm/parameter/Allocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/jvm/FinalizeEscapeGC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/jvm/normal/FinalizeEscapeGC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/jvm/HeapOOM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/jvm/normal/HeapOOM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/jvm/InternTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/jvm/normal/InternTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/jvm/JVMStackSOF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/jvm/normal/JVMStackSOF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/jvm/MaxTenuringThreshold.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/jvm/PretenureSizeThreshold.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/jvm/parameter/PretenureSizeThreshold.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/jvm/TenuringThreshold.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/jvm/Allocation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/jvm/FinalizeEscapeGC.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/jvm/HeapOOM$OOMObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/jvm/HeapOOM.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/jvm/InternTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/jvm/JVMStackSOF.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/jvm/MaxTenuringThreshold.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/jvm/PretenureSizeThreshold.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/jvm/TenuringThreshold.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -71,43 +51,44 @@
     <session id="-1469695083">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="14" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="5" />
+          <entry key="project.open.time.1" value="6" />
           <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="2" />
-          <entry key="java" value="46" />
+          <entry key="java" value="47" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="2" />
-          <entry key="JAVA" value="46" />
+          <entry key="JAVA" value="47" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="6" />
-          <entry key="java" value="3356" />
+          <entry key="java" value="3603" />
           <entry key="xml" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3356" />
+          <entry key="JAVA" value="3603" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="XML" value="24" />
         </counts>
@@ -116,35 +97,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/jvm/monitor/Test01.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/jvm/monitor/DeadLoop.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/java8/CollectorsTest.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/jvm/monitor/BTraceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-278">
-              <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+            <state relative-caret-position="324">
+              <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -206,6 +166,7 @@
         <option value="$PROJECT_DIR$/src/test/java/jvm/monitor/Test01.java" />
         <option value="$PROJECT_DIR$/src/test/java/jvm/monitor/DeadLoop.java" />
         <option value="$PROJECT_DIR$/src/test/java/java8/CollectorsTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/jvm/monitor/BTraceTest.java" />
       </list>
     </option>
   </component>
@@ -224,10 +185,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="150" />
-    <option name="y" value="-12" />
-    <option name="width" value="981" />
-    <option name="height" value="528" />
+    <option name="x" value="-9" />
+    <option name="width" value="1947" />
+    <option name="height" value="1071" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -235,8 +195,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -291,13 +252,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542635141866" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543809541912" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="D:/Program Files (x86)/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -326,20 +286,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.DeadLoop">
+  <component name="RunManager" selected="Application.BTraceTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Allocation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="jvm.parameter.Allocation" />
+    <configuration name="BTraceTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="jvm.monitor.BTraceTest" />
       <module name="exercise" />
-      <option name="VM_PARAMETERS" value="-verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="jvm.parameter.normal.*" />
+          <option name="PATTERN" value="jvm.monitor.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -447,14 +407,15 @@
     </configuration>
     <list>
       <item itemvalue="Application.PretenureSizeThreshold" />
-      <item itemvalue="Application.Allocation" />
       <item itemvalue="Application.FinalizeEscapeGC" />
       <item itemvalue="Application.TenuringThreshold" />
       <item itemvalue="Application.Test01" />
       <item itemvalue="Application.DeadLoop" />
+      <item itemvalue="Application.BTraceTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BTraceTest" />
         <item itemvalue="Application.DeadLoop" />
         <item itemvalue="Application.Test01" />
         <item itemvalue="Application.TenuringThreshold" />
@@ -486,11 +447,13 @@
       <workItem from="1542632647785" duration="3543000" />
       <workItem from="1542679831171" duration="103000" />
       <workItem from="1543243583239" duration="613000" />
+      <workItem from="1543806934378" duration="2577000" />
+      <workItem from="1543824453562" duration="595000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29855000" />
+    <option name="totallyTimeSpent" value="33027000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -503,9 +466,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2716249" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28051737" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -514,7 +476,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.34965035" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34965035" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.45454547" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -685,26 +647,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/jvm/monitor/DeadLoop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
+        <state relative-caret-position="748">
           <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/java8/CollectorsTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-278">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        <state relative-caret-position="44">
+          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/jvm/monitor/BTraceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
