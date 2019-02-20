@@ -1,6 +1,6 @@
 package DesignPatterns;
 
-public class MyBuilder {
+public class Person {
     private String name;
     private int age;
 
@@ -25,7 +25,7 @@ public class MyBuilder {
     }
 
     public String toString(){
-        return "name : " + this.getName() + "\t age : " + this.age;
+        return "name : " + this.getName() + "\t age : " + this.getAge();
     }
 
     public static class Builder {
@@ -40,16 +40,16 @@ public class MyBuilder {
             return this;
         }
 
-        public MyBuilder build(){
-            MyBuilder myBuilder = new MyBuilder();
-            myBuilder.setAge(this.age);
-            myBuilder.setName(this.name);
-            return myBuilder;
+        public Person build(){
+            Person personBuilder = new Person();
+            personBuilder.setAge(this.age);
+            personBuilder.setName(this.name);
+            return personBuilder;
         }
     }
 
     public static void main(String[] args) {
-        MyBuilder myBuilder = MyBuilder.Builder().setAge(11).setName("walle").build();
-        System.out.println(myBuilder);
+        Person person = Person.Builder().setAge(11).setName("walle").build();
+        System.out.println(person);
     }
 }
