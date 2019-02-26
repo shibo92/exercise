@@ -10,6 +10,5 @@ public class WordsFilter implements Filter {
         request.setMsg(request.getMsg() + " ==> WordsFilter");
         filterChain.doFilter(request, response, filterChain);
         response.setMsg(response.getMsg() + " ==> WordsFilter");
-
     }
 }
