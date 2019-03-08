@@ -6,3 +6,4 @@
   - 测试commit
 + 测试reset
 + 测试git pull
++ replace nano to vim
