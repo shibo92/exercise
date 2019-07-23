@@ -1,5 +1,6 @@
 package thread.exercise;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -20,8 +21,8 @@ class Resource {
             for (int i = 0; i < arr.length; i += 2) {
                 System.out.println(Thread.currentThread().getName() + " -- "+arr[i]);
                 t1IsRun = true;
-                p2Condition.signal();
-                p1Condition.await();
+                p2Condition.signal(); // notify p2 // 和nofity区别是可以指定某个线程的condition
+                p1Condition.await(100, TimeUnit.MILLISECONDS); // wait p1
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -40,7 +41,7 @@ class Resource {
             for (int i = 1; i < arr.length; i += 2) {
                 System.out.println(Thread.currentThread().getName() + " -- "+arr[i]);
                 p1Condition.signal();
-                p2Condition.await();
+                p2Condition.await(100, TimeUnit.MILLISECONDS);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
