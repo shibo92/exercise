@@ -15,6 +15,6 @@ public class TVObserver implements Observer {
 
     @Override
     public void showNews() {
-        System.out.println("电视播放新闻" + this.subjectgit.getNews());
+        System.out.println("电视播放新闻" + this.subject.getNews());
     }
 }
