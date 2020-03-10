@@ -14,7 +14,7 @@ public class Test02 {
         // 此代码不会触发MyParent02的主动调用，
         // 因为str被final修饰，在编译期就存到了Test02.class的常量池中
         // 甚至在编译后将MyParent02.class文件删除，也不会影响使用
-        System.out.println(MyParent02.i2);
+        System.out.println(MyParent02.str);
     }
 }
 
