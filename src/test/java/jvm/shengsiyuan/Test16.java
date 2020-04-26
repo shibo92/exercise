@@ -1,72 +1,66 @@
 package jvm.shengsiyuan;
 
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * @author by shibo on 2020/4/23.
  */
-public class Test16 extends ClassLoader {
-    private String classLoaderName;
-    private final String fileExtension = ".class";
+public class Test16 {
+    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+        MyClassLoader myClassLoader = new MyClassLoader("我的classLoader");
+        Class<?> clazz = myClassLoader.loadClass("jvm.shengsiyuan.Test01");
+        Object obj = clazz.getDeclaredConstructor().newInstance();
+        System.out.println(obj);
+    }
+}
 
-    public Test16(String classLoaderName) {
+class MyClassLoader extends ClassLoader {
+    private String name;
+    private final String fileExtionsion = ".class";
+
+    public MyClassLoader(String classLoaderName) {
         super();
-        this.classLoaderName = classLoaderName;
+        this.name = classLoaderName;
     }
 
-    public Test16(ClassLoader parent, String classLoaderName) {
-        super(parent);
-        this.classLoaderName = classLoaderName;
+    public MyClassLoader(String classLoaderName, ClassLoader classLoader) {
+        super(classLoader);
+        this.name = classLoaderName;
     }
 
     @Override
     public String toString() {
-        return "[[" + this.classLoaderName + "]]";
+        return "[[ " + this.name + " ]]";
     }
 
     @Override
     public Class<?> findClass(String classFullName) {
-        byte[] data = this.loadClassData(classFullName);
-        return this.defineClass(classFullName, data, 0, data.length);
+        byte[] classData = this.loadClassData(classFullName);
+        return this.defineClass(classFullName, classData, 0, classData.length);
     }
 
-    /**
-     * 根据类全路径名加载
-     *
-     * @param classFullName
-     * @return
-     */
     private byte[] loadClassData(String classFullName) {
         InputStream inputStream = null;
-        byte[] resultData = null;
-        ByteArrayOutputStream baos = null;
-
-        this.classLoaderName = this.classLoaderName.replace(".", "/");
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        byte[] result = null;
         try {
-            inputStream = new FileInputStream(new File(classFullName + this.fileExtension));
-            baos = new ByteArrayOutputStream();
-            int ch = 0;
+            inputStream = new FileInputStream(new File(classFullName + this.fileExtionsion));
+            int ch;
             while ((ch = inputStream.read()) != -1) {
-                baos.write(ch);
+                outputStream.write(ch);
             }
-            resultData = baos.toByteArray();
+            result = outputStream.toByteArray();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
-                baos.close();
+                outputStream.close();
                 inputStream.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        return resultData;
-    }
-
-    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        Test16 myTest16 = new Test16("我的classLoader");
-        Class<?> clazz = myTest16.loadClass("jvm.shengsiyuan.Test01");
-        Object obj = clazz.newInstance();
-        System.out.println(obj);
+        return result;
     }
 }
