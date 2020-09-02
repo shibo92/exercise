@@ -15,7 +15,9 @@ AbstractList <|-- ArrayList
 class ArrayList {
 Object[] elementData
 size()
+Object element
 }
+
 
 enum TimeUnit {
 DAYS
