@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 /**
  * @author by shibo on 2020/9/22.
+ * 贪心算法-最大装载问题
  * 问题描述：某艘船的载重量为C，每件物品的重量为wi,要将尽量多的物品装入到船上。
  */
 public class Test01 {
