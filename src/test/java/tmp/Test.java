@@ -9,6 +9,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Test {
     public static void main(String[] args) {
-        List l = new ArrayList<>();
+
+        System.out.println(System.currentTimeMillis());
+
     }
 }
