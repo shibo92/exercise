@@ -10,10 +10,10 @@ public class Example2 {
 
     public static AtomicInteger count = new AtomicInteger(0);
     public static int clientTotal = 5000;
-    public static int threadTotal = 200;
+    public static int threadTotal = 3;
     public static void main(String[] args) throws Exception {
         ExecutorService executorService = Executors.newCachedThreadPool();
-        // 用200个线程处理
+        // 但同时只能有3个线程运行
         Semaphore semaphore = new Semaphore(threadTotal);
         CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
         for (int i = 0; i < clientTotal ; i++) {
@@ -28,7 +28,9 @@ public class Example2 {
                 countDownLatch.countDown();
             });
         }
+        // 等待所有线程执行完毕
         countDownLatch.await();
+        // 线程池关闭
         executorService.shutdown();
         // 输出正常
         System.out.println(count);
