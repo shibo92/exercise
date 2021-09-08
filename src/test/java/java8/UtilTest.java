@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 public class UtilTest {
-    int[] data = {4,12,1,3,5,7,9};
+    int[] data = {412,1,3,5,7,9};
 
     @Test
     public void parallelSort(){
