@@ -19,7 +19,6 @@ public class SemaphoreTest{
                 }finally {
                     semaphore.release();
                 }
-
             }).start();
         }
     }
