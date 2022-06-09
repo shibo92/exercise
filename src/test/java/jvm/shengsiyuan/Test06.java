@@ -9,23 +9,24 @@ import javax.xml.bind.SchemaOutputResolver;
 public class Test06 {
     public static void main(String[] args) {
         Singleton singleton = Singleton.getInstance();
-        System.out.println(Singleton.count1); // 1
-        System.out.println(Singleton.count2); // 0
+        System.out.println(singleton);
     }
 }
 
 class Singleton {
-    public static int count1;
-    private static Singleton singleton = new Singleton();
-
+    private static volatile Singleton singleton;
     private Singleton() {
-        count1++;
-        count2++;
     }
-    public static int count2 = 0;
-
 
     public static Singleton getInstance(){
+        if(null == singleton){
+            synchronized (Singleton.class){
+                if(null == singleton){
+                    singleton = new Singleton();
+                }
+            }
+        }
         return singleton;
     }
+
 }
