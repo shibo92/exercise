@@ -11,7 +11,6 @@ public class JoinTest {
         System.out.println(futureTask.get());
         System.out.println(futureTask.get());*/
 
-        System.out.println(((Callable<Integer>) () -> 1).call());
 
         /*System.out.println(Thread.currentThread().getName() + "-开始运行");
         Object lockA = new Object();

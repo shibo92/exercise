@@ -14,14 +14,8 @@ public class ForkJoinDemo {
         list.add(1);
         list.add(2);
         list.add(3);
-        System.out.println("aa=>" + list.get(0));
         ForkJoinTask<Integer> res = forkJoinPool.submit(new ForkJoinInner(list));
         System.out.println(res.get());
-        forkJoinPool.shutdownNow();
-        forkJoinPool = new ForkJoinPool();
-        ForkJoinTask<Integer> res2 = forkJoinPool.submit(new ForkJoinInner(list));
-        System.out.println("res2 ==> " + res2.get());
-
     }
 }
 class ForkJoinInner extends RecursiveTask<Integer> {
@@ -31,11 +25,10 @@ class ForkJoinInner extends RecursiveTask<Integer> {
         this.arrI = arrI;
     }
 
-
     @Override
     protected Integer compute() {
         if (arrI.size() == 1) {
-            return 2;
+            return 1;
         } else {
             int middle = arrI.size()/2;
             ForkJoinInner fj1 = new ForkJoinInner(arrI.subList(0,middle));
@@ -44,7 +37,12 @@ class ForkJoinInner extends RecursiveTask<Integer> {
             fj2.fork();
             fj1.join();
             fj2.join();
-            return 1;
+            try {
+                return fj1.get()+fj2.get();
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            }
+            return 0;
         }
     }
 }
