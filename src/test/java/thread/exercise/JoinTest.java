@@ -6,10 +6,10 @@ import java.util.concurrent.FutureTask;
 
 public class JoinTest {
     public static void main(String[] args) throws Exception {
-        /*FutureTask<Object> futureTask = new FutureTask<>((() -> 1));
-        futureTask.run();
+        FutureTask<Object> futureTask = new FutureTask<>((() -> 1));
+        new Thread(futureTask).start();
         System.out.println(futureTask.get());
-        System.out.println(futureTask.get());*/
+        System.out.println(futureTask.get());
 
 
         /*System.out.println(Thread.currentThread().getName() + "-开始运行");
