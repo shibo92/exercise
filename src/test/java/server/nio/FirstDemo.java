@@ -1,8 +1,9 @@
-package nio;
+package server.nio;
 
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.channels.SocketChannel;
 
 public class FirstDemo {
     public static void main(String[] args) {
@@ -12,7 +13,6 @@ public class FirstDemo {
             fin = new FileInputStream(file);
             FileChannel fcIn = fin.getChannel();
             ByteBuffer buffer = ByteBuffer.allocate(1024);
-
             File outFile = new File("/Users/shibo/tmp/niotest_out.txt");
             FileOutputStream fout = new FileOutputStream(outFile);
             FileChannel fcOut = fout.getChannel();
