@@ -28,14 +28,16 @@ import java.util.Arrays;
  * Handler implementation for the echo server.
  */
 @Sharable
-public class EchoServerHandler extends ChannelInboundHandlerAdapter {
+public class MyServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
-        System.out.println("收到数据：" + ((ByteBuf)msg).toString(Charset.defaultCharset()));
-        ctx.write(Unpooled.wrappedBuffer("98877".getBytes()));
-        // ((ByteBuf) msg).release();
-        ctx.fireChannelRead(msg);
+        /*ByteBuf byteBuf = (ByteBuf) msg;
+        byte[] content = new byte[byteBuf.readableBytes()];
+        byteBuf.readBytes(content);
+        System.out.println("收到数据：" + new String(content));*/
+
+        System.out.println("收到数据：" + msg);
     }
 
     @Override

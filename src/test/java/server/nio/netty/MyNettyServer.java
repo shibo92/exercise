@@ -16,6 +16,8 @@
 package server.nio.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
@@ -24,13 +26,20 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
+import io.netty.handler.codec.LengthFieldPrepender;
+import io.netty.handler.codec.LineBasedFrameDecoder;
+import io.netty.handler.codec.bytes.ByteArrayDecoder;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
 /**
  * Echoes back any received data from a client.
  */
-public final class EchoServer {
+public final class MyNettyServer {
     static final int PORT = Integer.parseInt(System.getProperty("port", "8081"));
 
     public static void main(String[] args) throws Exception {
@@ -43,17 +52,26 @@ public final class EchoServer {
             // 服务端启动引导工具类
             ServerBootstrap b = new ServerBootstrap();
             // 配置服务端处理的reactor线程组以及服务端的其他配置
-            b.group(bossGroup, workerGroup2).channel(NioServerSocketChannel.class).option(ChannelOption.SO_BACKLOG, 100)
-                    .handler(new LoggingHandler(LogLevel.DEBUG)).childHandler(new ChannelInitializer<SocketChannel>() {
+            b.group(bossGroup, workerGroup2).channel(NioServerSocketChannel.class)
+                    .option(ChannelOption.SO_BACKLOG, 100)
+                    .handler(new LoggingHandler(LogLevel.DEBUG))
+                    .childHandler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 public void initChannel(SocketChannel ch) {
                     ChannelPipeline p = ch.pipeline();
-                    p.addLast(new EchoServerHandler());
+                    // p.addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 0, 4, 0, 4));
+                    // p.addLast("frameDecoder", new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 0, 4, 0, 4));
+                    // p.addLast("frameEncoder", new LengthFieldPrepender(4, false));
+                    ByteBuf delimiterCode = Unpooled.copiedBuffer("-".getBytes());
+                    p.addLast(new DelimiterBasedFrameDecoder(Integer.MAX_VALUE, delimiterCode));
+                    p.addLast(new StringDecoder());
+                    p.addLast(workerGroup2, new MyServerHandler());
                 }
             });
             // 通过bind启动服务
             ChannelFuture f = b.bind(PORT).sync();
-            // 阻塞主线程，知道网络服务被关闭
+            System.out.println("服务启动成功,port:" + PORT);
+            // 阻塞主线程，直到网络服务被关闭
             f.channel().closeFuture().sync();
         } finally {
             // 关闭线程组
