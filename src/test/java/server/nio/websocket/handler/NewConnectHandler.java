@@ -20,6 +20,7 @@ public class NewConnectHandler extends SimpleChannelInboundHandler<FullHttpReque
         // String token = parameters.get("token").get(0);  不是所有人都能连接，比如需要登录之后，发放一个推送的token
         String userId = parameters.get("userId").get(0);
         ctx.channel().attr(AttributeKey.valueOf("userId")).getAndSet(userId); // channel中保存userId
+        System.out.println("userId:"+ userId + " is connected..");
         TestCenter.saveConnection(userId, ctx.channel()); // 保存连接
 
         // 结束

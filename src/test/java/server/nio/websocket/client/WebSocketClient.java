@@ -34,7 +34,6 @@ public final class WebSocketClient {
         final String maxSize = System.getProperty("netease.client.port.maxSize", "100");
         final String maxConnections = System.getProperty("netease.client.port.maxConnections", "60000");
         int port = 9001;
-
         EventLoopGroup group = new NioEventLoopGroup();
         try {
 
