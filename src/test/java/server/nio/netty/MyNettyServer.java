@@ -35,6 +35,7 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import io.netty.util.concurrent.DefaultThreadFactory;
 
 /**
  * Echoes back any received data from a client.
@@ -48,6 +49,7 @@ public final class MyNettyServer {
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         // 创建EventLoopGroup   I/O线程组
         EventLoopGroup workerGroup2 = new NioEventLoopGroup(2);
+        EventLoopGroup bizWorkerGroup = new NioEventLoopGroup(10, new DefaultThreadFactory("biz-threapool-"));
         try {
             // 服务端启动引导工具类
             ServerBootstrap b = new ServerBootstrap();
@@ -65,7 +67,7 @@ public final class MyNettyServer {
                     ByteBuf delimiterCode = Unpooled.copiedBuffer("-".getBytes());
                     p.addLast(new DelimiterBasedFrameDecoder(Integer.MAX_VALUE, delimiterCode));
                     p.addLast(new StringDecoder());
-                    p.addLast(workerGroup2, new MyServerHandler());
+                    p.addLast(bizWorkerGroup, new MyServerHandler());
                 }
             });
             // 通过bind启动服务

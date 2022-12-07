@@ -9,10 +9,11 @@ import java.util.concurrent.*;
 public class Tmp implements Serializable {
 
     public static void main(String[] args) {
-        final List l = new ArrayList();
-        l.add(123);
-        // l = new ArrayList();
-        final char value[]=new char[20];
-        value[0] = 1;
+        Map<String ,String> m = new HashMap<>();
+        m.put("11","");
+        m.put("22","");
+            for (String value : m.values()) {
+            System.out.println(value);
+        }
     }
 }
